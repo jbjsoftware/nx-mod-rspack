@@ -6,6 +6,30 @@ const config: ModuleFederationConfig = {
   exposes: {
     './Module': './src/remote-entry.ts',
   },
+  shared: (packageName: string) => {
+    if (packageName === 'react') {
+      return {
+        singleton: true,
+        eager: false,
+        requiredVersion: '^19.0.0',
+      };
+    }
+    if (packageName === 'react-dom') {
+      return {
+        singleton: true,
+        eager: false,
+        requiredVersion: '^19.0.0',
+      };
+    }
+    if (packageName === 'react-router-dom') {
+      return {
+        singleton: true,
+        eager: false,
+        requiredVersion: '^6.29.0',
+      };
+    }
+    return false;
+  },
 };
 
 /**

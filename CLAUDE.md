@@ -121,3 +121,10 @@ npm run nxe:make:app
 2. For desktop development: `nx serve desktop`
 3. Remotes are served automatically when host needs them
 4. Each remote can be developed independently with its own serve command
+
+## Important Notes
+
+- This workspace uses **PNPM** as the package manager - use `pnpm install` instead of npm
+- Nx 21.3.10 is configured with advanced workspace features and task caching
+- When running tasks, prefer the `nx run <project>:<target>` format for consistency
+- The workspace includes Cursor integration with Nx MCP server tools for enhanced development experience
