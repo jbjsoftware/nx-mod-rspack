@@ -9,10 +9,8 @@ import { join } from 'path';
 import config from './module-federation.config';
 
 const ignoreWarnings = [
-  {
-    module: /node_modules\/@module-federation\/enhanced/,
-    message: /Failed to parse source map/,
-  },
+  /Failed to parse source map from.*@module-federation\/enhanced/,
+  /Failed to parse source map/,
 ];
 
 export default {
@@ -28,6 +26,7 @@ export default {
       htmlAcceptHeaders: ['text/html', 'application/xhtml+xml'],
     },
   },
+  ignoreWarnings,
   plugins: [
     new NxAppRspackPlugin({
       tsConfig: './tsconfig.app.json',
